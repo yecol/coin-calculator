@@ -21,6 +21,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    NSArray *viewsOfInterest = @[self.upboard, self.downboard];
+    [self setEvaluateViews:viewsOfInterest];
 }
 
 - (void)didReceiveMemoryWarning

@@ -14,6 +14,9 @@
 @property(assign,nonatomic) IBOutlet UIImageView *cardhard;
 @property(assign,nonatomic) IBOutlet UIImageView *cardgood;
 
+@property(assign,nonatomic) IBOutlet UIView *upboard;
+@property(assign,nonatomic) IBOutlet UIView *downboard;
+
 @property (nonatomic, strong) IBOutlet UIPanGestureRecognizer *panRecognizer;
 
 - (IBAction)handlePanRecognizer:(id)sender;

@@ -46,27 +46,26 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="ozO-b1-7As" appends="YES" id="GZW-ab-8iH"/>
+                                    <outletCollection property="gestureRecognizers" destination="ozO-b1-7As" appends="YES" id="y6h-HD-nBF"/>
                                 </connections>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zbp-jJ-6uR">
                                 <rect key="frame" x="122" y="193" width="77" height="103"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="ozO-b1-7As" appends="YES" id="zuQ-8i-p30"/>
-                                </connections>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Nj-lP-AUY">
                                 <rect key="frame" x="223" y="193" width="77" height="103"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="ozO-b1-7As" appends="YES" id="FUI-nw-WuN"/>
-                                </connections>
                             </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="208-YK-aaY">
                                 <rect key="frame" x="23" y="70" width="275" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AKe-sO-6Gs">
+                                <rect key="frame" x="80" y="343" width="160" height="83"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
@@ -83,11 +82,17 @@
                         <outlet property="cardgood" destination="Zbp-jJ-6uR" id="4qn-FI-sdC"/>
                         <outlet property="cardhard" destination="5Nj-lP-AUY" id="GKJ-d2-LdY"/>
                         <outlet property="cardsoft" destination="A0P-RD-k92" id="VqK-ZS-U9h"/>
+                        <outlet property="downboard" destination="AKe-sO-6Gs" id="u7J-4A-4J7"/>
                         <outlet property="panRecognizer" destination="ozO-b1-7As" id="x61-PD-WFj"/>
+                        <outlet property="upboard" destination="208-YK-aaY" id="AaZ-cm-6Dc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h4L-l5-tyG" sceneMemberID="firstResponder"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="ozO-b1-7As"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="ozO-b1-7As">
+                    <connections>
+                        <action selector="handlePanRecognizer:" destination="rQl-PL-IFJ" id="55w-Q6-FuP"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-51" y="182"/>
         </scene>
