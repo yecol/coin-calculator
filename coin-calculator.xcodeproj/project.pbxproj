@@ -22,6 +22,9 @@
 		274142F318BB527300C3ADED /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 274142D218BB527200C3ADED /* UIKit.framework */; };
 		274142FB18BB527300C3ADED /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 274142F918BB527300C3ADED /* InfoPlist.strings */; };
 		274142FD18BB527300C3ADED /* coin_calculatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 274142FC18BB527300C3ADED /* coin_calculatorTests.m */; };
+		2741430818BB5D0B00C3ADED /* YSResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2741430718BB5D0B00C3ADED /* YSResultViewController.m */; };
+		2741430E18BB66B600C3ADED /* UIGestureRecognizer+DraggingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2741430B18BB66B600C3ADED /* UIGestureRecognizer+DraggingAdditions.m */; };
+		2741430F18BB66B600C3ADED /* UIView+ZSViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2741430D18BB66B600C3ADED /* UIView+ZSViewAdditions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +59,12 @@
 		274142F818BB527300C3ADED /* coin-calculatorTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "coin-calculatorTests-Info.plist"; sourceTree = "<group>"; };
 		274142FA18BB527300C3ADED /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		274142FC18BB527300C3ADED /* coin_calculatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = coin_calculatorTests.m; sourceTree = "<group>"; };
+		2741430618BB5D0B00C3ADED /* YSResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSResultViewController.h; sourceTree = "<group>"; };
+		2741430718BB5D0B00C3ADED /* YSResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSResultViewController.m; sourceTree = "<group>"; };
+		2741430A18BB66B600C3ADED /* UIGestureRecognizer+DraggingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIGestureRecognizer+DraggingAdditions.h"; path = "dependency/UIGestureRecognizer+DraggingAdditions.h"; sourceTree = "<group>"; };
+		2741430B18BB66B600C3ADED /* UIGestureRecognizer+DraggingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIGestureRecognizer+DraggingAdditions.m"; path = "dependency/UIGestureRecognizer+DraggingAdditions.m"; sourceTree = "<group>"; };
+		2741430C18BB66B600C3ADED /* UIView+ZSViewAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+ZSViewAdditions.h"; path = "dependency/UIView+ZSViewAdditions.h"; sourceTree = "<group>"; };
+		2741430D18BB66B600C3ADED /* UIView+ZSViewAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+ZSViewAdditions.m"; path = "dependency/UIView+ZSViewAdditions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +124,7 @@
 		274142D418BB527200C3ADED /* coin-calculator */ = {
 			isa = PBXGroup;
 			children = (
+				2741430918BB66A100C3ADED /* dependency */,
 				274142DD18BB527300C3ADED /* YSAppDelegate.h */,
 				274142DE18BB527300C3ADED /* YSAppDelegate.m */,
 				274142E018BB527300C3ADED /* Main.storyboard */,
@@ -122,6 +132,8 @@
 				274142E418BB527300C3ADED /* YSMainViewController.m */,
 				274142E618BB527300C3ADED /* YSFlipsideViewController.h */,
 				274142E718BB527300C3ADED /* YSFlipsideViewController.m */,
+				2741430618BB5D0B00C3ADED /* YSResultViewController.h */,
+				2741430718BB5D0B00C3ADED /* YSResultViewController.m */,
 				274142E918BB527300C3ADED /* Images.xcassets */,
 				274142D518BB527200C3ADED /* Supporting Files */,
 			);
@@ -155,6 +167,17 @@
 				274142F918BB527300C3ADED /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2741430918BB66A100C3ADED /* dependency */ = {
+			isa = PBXGroup;
+			children = (
+				2741430A18BB66B600C3ADED /* UIGestureRecognizer+DraggingAdditions.h */,
+				2741430B18BB66B600C3ADED /* UIGestureRecognizer+DraggingAdditions.m */,
+				2741430C18BB66B600C3ADED /* UIView+ZSViewAdditions.h */,
+				2741430D18BB66B600C3ADED /* UIView+ZSViewAdditions.m */,
+			);
+			name = dependency;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,10 +278,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2741430E18BB66B600C3ADED /* UIGestureRecognizer+DraggingAdditions.m in Sources */,
+				2741430818BB5D0B00C3ADED /* YSResultViewController.m in Sources */,
 				274142E818BB527300C3ADED /* YSFlipsideViewController.m in Sources */,
 				274142E518BB527300C3ADED /* YSMainViewController.m in Sources */,
 				274142DF18BB527300C3ADED /* YSAppDelegate.m in Sources */,
 				274142DB18BB527300C3ADED /* main.m in Sources */,
+				2741430F18BB66B600C3ADED /* UIView+ZSViewAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,6 +493,7 @@
 				2741430218BB527300C3ADED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2741430318BB527300C3ADED /* Build configuration list for PBXNativeTarget "coin-calculatorTests" */ = {
 			isa = XCConfigurationList;
@@ -475,6 +502,7 @@
 				2741430518BB527300C3ADED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

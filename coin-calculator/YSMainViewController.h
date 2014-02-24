@@ -10,4 +10,12 @@
 
 @interface YSMainViewController : UIViewController <YSFlipsideViewControllerDelegate>
 
+@property(assign,nonatomic) IBOutlet UIImageView *cardsoft;
+@property(assign,nonatomic) IBOutlet UIImageView *cardhard;
+@property(assign,nonatomic) IBOutlet UIImageView *cardgood;
+
+@property (nonatomic, strong) IBOutlet UIPanGestureRecognizer *panRecognizer;
+
+- (IBAction)handlePanRecognizer:(id)sender;
+
 @end

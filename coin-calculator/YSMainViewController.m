@@ -7,8 +7,11 @@
 //
 
 #import "YSMainViewController.h"
+#import "UIGestureRecognizer+DraggingAdditions.h"
 
 @interface YSMainViewController ()
+
+@property (strong, nonatomic) NSArray *evaluateViews;
 
 @end
 
@@ -39,5 +42,69 @@
         [[segue destinationViewController] setDelegate:self];
     }
 }
+
+- (IBAction)handlePanRecognizer:(id)sender
+{
+    NSLog(@"yes,this is pan.");
+    
+    UIPanGestureRecognizer *recongizer = (UIPanGestureRecognizer *)sender;
+    
+    if ([recongizer state] == UIGestureRecognizerStateBegan)
+    {
+//        [[self completionLabel] setText:nil];
+        NSLog(@"yecol-null");
+    }
+    
+    NSArray *views = [self evaluateViews];
+//    __block UILabel *label = [self completionLabel];
+    
+    // Block to execute when our dragged view is contained by one of our evaluation views.
+    static void (^overlappingBlock)(UIView *overlappingView);
+    overlappingBlock = ^(UIView *overlappingView) {
+        
+        [views enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            
+            UIView *aView = (UIView *)obj;
+            
+            // Style an overlapping view
+            if (aView == overlappingView)
+            {
+                aView.layer.borderWidth = 8.0f;
+                aView.layer.borderColor = [[UIColor redColor] CGColor];
+            }
+            // Remove styling on non-overlapping views
+            else
+            {
+                aView.layer.borderWidth = 0.0f;
+            }
+        }];
+    };
+    
+    // Block to execute when gesture ends.
+    static void (^completionBlock)(UIView *overlappingView);
+    completionBlock = ^(UIView *overlappingView) {
+        
+        if (overlappingView)
+        {
+            NSUInteger overlapIndex = [[self evaluateViews] indexOfObject:overlappingView];
+            NSString *completionText = [NSString stringWithFormat:@"Released over view at index: %d", overlapIndex];
+//            [label setText:completionText];
+            NSLog(@"%@",completionText);
+        }
+        
+        // Remove styling from all views
+        [views enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            UIView *aView = (UIView *)obj;
+            aView.layer.borderWidth = 0.0f;
+        }];
+    };
+    
+    [recongizer dragViewWithinView:[self view]
+           evaluateViewsForOverlap:views
+   containedByOverlappingViewBlock:overlappingBlock
+                        completion:completionBlock];
+    
+}
+
 
 @end
