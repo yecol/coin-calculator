@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		270F4ECD18BCCC260069DE7C /* cardgood.png in Resources */ = {isa = PBXBuildFile; fileRef = 270F4ECA18BCCC260069DE7C /* cardgood.png */; };
+		270F4ECE18BCCC260069DE7C /* cardhard.png in Resources */ = {isa = PBXBuildFile; fileRef = 270F4ECB18BCCC260069DE7C /* cardhard.png */; };
+		270F4ECF18BCCC260069DE7C /* cardsoft.png in Resources */ = {isa = PBXBuildFile; fileRef = 270F4ECC18BCCC260069DE7C /* cardsoft.png */; };
 		274142CF18BB527200C3ADED /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 274142CE18BB527200C3ADED /* Foundation.framework */; };
 		274142D118BB527200C3ADED /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 274142D018BB527200C3ADED /* CoreGraphics.framework */; };
 		274142D318BB527200C3ADED /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 274142D218BB527200C3ADED /* UIKit.framework */; };
@@ -38,6 +41,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		270F4ECA18BCCC260069DE7C /* cardgood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cardgood.png; sourceTree = "<group>"; };
+		270F4ECB18BCCC260069DE7C /* cardhard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cardhard.png; sourceTree = "<group>"; };
+		270F4ECC18BCCC260069DE7C /* cardsoft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cardsoft.png; sourceTree = "<group>"; };
 		274142CB18BB527200C3ADED /* coin-calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "coin-calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		274142CE18BB527200C3ADED /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		274142D018BB527200C3ADED /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -91,6 +97,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		270F4EC918BCCC260069DE7C /* images */ = {
+			isa = PBXGroup;
+			children = (
+				270F4ECA18BCCC260069DE7C /* cardgood.png */,
+				270F4ECB18BCCC260069DE7C /* cardhard.png */,
+				270F4ECC18BCCC260069DE7C /* cardsoft.png */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
 		274142C218BB527200C3ADED = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +140,7 @@
 		274142D418BB527200C3ADED /* coin-calculator */ = {
 			isa = PBXGroup;
 			children = (
+				270F4EC918BCCC260069DE7C /* images */,
 				2741430918BB66A100C3ADED /* dependency */,
 				274142DD18BB527300C3ADED /* YSAppDelegate.h */,
 				274142DE18BB527300C3ADED /* YSAppDelegate.m */,
@@ -259,7 +276,10 @@
 			files = (
 				274142EA18BB527300C3ADED /* Images.xcassets in Resources */,
 				274142D918BB527300C3ADED /* InfoPlist.strings in Resources */,
+				270F4ECD18BCCC260069DE7C /* cardgood.png in Resources */,
+				270F4ECF18BCCC260069DE7C /* cardsoft.png in Resources */,
 				274142E218BB527300C3ADED /* Main.storyboard in Resources */,
+				270F4ECE18BCCC260069DE7C /* cardhard.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,9 +10,9 @@
 
 @interface YSMainViewController : UIViewController <YSFlipsideViewControllerDelegate>
 
-@property(assign,nonatomic) IBOutlet UIImageView *cardsoft;
-@property(assign,nonatomic) IBOutlet UIImageView *cardhard;
-@property(assign,nonatomic) IBOutlet UIImageView *cardgood;
+@property(assign,nonatomic) IBOutlet UIView *cardsoft;
+@property(assign,nonatomic) IBOutlet UIView *cardhard;
+@property(assign,nonatomic) IBOutlet UIView *cardgood;
 
 @property(assign,nonatomic) IBOutlet UIView *upboard;
 @property(assign,nonatomic) IBOutlet UIView *downboard;

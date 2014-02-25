@@ -47,14 +47,11 @@
 
 - (IBAction)handlePanRecognizer:(id)sender
 {
-    NSLog(@"yes,this is pan.");
-    
     UIPanGestureRecognizer *recongizer = (UIPanGestureRecognizer *)sender;
     
     if ([recongizer state] == UIGestureRecognizerStateBegan)
     {
-//        [[self completionLabel] setText:nil];
-        NSLog(@"yecol-null");
+        NSLog(@"yecol-begin");
     }
     
     NSArray *views = [self evaluateViews];
