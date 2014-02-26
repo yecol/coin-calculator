@@ -125,7 +125,6 @@ containedByOverlappingRectBlock:containsBlock
             }
             
             [self setStartPoint:CGPointZero];
-            
         }
             break;
             

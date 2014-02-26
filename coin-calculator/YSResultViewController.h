@@ -10,6 +10,12 @@
 
 @interface YSResultViewController : UIViewController
 
+@property(assign,nonatomic) int bankerCount;
+@property(assign,nonatomic) int otherCount;
+
+@property(assign,nonatomic)IBOutlet UILabel *bankerLabel;
+@property(assign,nonatomic)IBOutlet UILabel *otherLabel;
+
 @property(assign,nonatomic) UIButton *againBtn;
 
 -(IBAction)againBtnPressed;

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B3116" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="rQl-PL-IFJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="rQl-PL-IFJ">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
@@ -37,18 +37,16 @@
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <state key="normal" title="算分"/>
                                 <connections>
-                                    <segue destination="QvN-am-RTm" kind="modal" modalTransitionStyle="coverVertical" id="cKP-r4-0c4"/>
+                                    <segue destination="QvN-am-RTm" kind="modal" identifier="showResult" modalTransitionStyle="coverVertical" id="cKP-r4-0c4"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="208-YK-aaY">
                                 <rect key="frame" x="22" y="39" width="277" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AKe-sO-6Gs">
-                                <rect key="frame" x="80" y="335" width="160" height="114"/>
+                                <rect key="frame" x="80" y="321" width="160" height="143"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cardsoft.png" translatesAutoresizingMaskIntoConstraints="NO" id="U0y-C1-WG0">
                                 <rect key="frame" x="23" y="197" width="79" height="116"/>
@@ -71,11 +69,12 @@
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </imageView>
                                 </subviews>
+                                <accessibility key="accessibilityConfiguration" label="soft"/>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="ozO-b1-7As" appends="YES" id="t64-GE-0ZT"/>
+                                    <outletCollection property="gestureRecognizers" destination="ozO-b1-7As" appends="YES" id="oM5-oy-JeO"/>
                                 </connections>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uQ4-Na-FY0">
+                            <view tag="1" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uQ4-Na-FY0">
                                 <rect key="frame" x="121" y="197" width="79" height="116"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -84,11 +83,12 @@
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </imageView>
                                 </subviews>
+                                <accessibility key="accessibilityConfiguration" label="good"/>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="ozO-b1-7As" appends="YES" id="22q-zL-ST6"/>
+                                    <outletCollection property="gestureRecognizers" destination="Dru-JN-pjs" appends="YES" id="nMM-dj-vO4"/>
                                 </connections>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Aq-B8-I4d">
+                            <view tag="2" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Aq-B8-I4d">
                                 <rect key="frame" x="221" y="197" width="79" height="116"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -97,8 +97,9 @@
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </imageView>
                                 </subviews>
+                                <accessibility key="accessibilityConfiguration" label="hard"/>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="ozO-b1-7As" appends="YES" id="fSR-zx-uiR"/>
+                                    <outletCollection property="gestureRecognizers" destination="tSi-yL-DCs" appends="YES" id="0CT-mq-hwl"/>
                                 </connections>
                             </view>
                         </subviews>
@@ -118,14 +119,26 @@
                         <outlet property="cardhard" destination="2Aq-B8-I4d" id="0Nm-xy-AoZ"/>
                         <outlet property="cardsoft" destination="qP1-lb-DWX" id="jJL-SM-JDu"/>
                         <outlet property="downboard" destination="AKe-sO-6Gs" id="u7J-4A-4J7"/>
-                        <outlet property="panRecognizer" destination="ozO-b1-7As" id="x61-PD-WFj"/>
+                        <outlet property="panRecognizergood" destination="Dru-JN-pjs" id="pFk-Vk-jHF"/>
+                        <outlet property="panRecognizerhard" destination="tSi-yL-DCs" id="rcW-YZ-SUS"/>
+                        <outlet property="panRecognizersoft" destination="ozO-b1-7As" id="6mB-gD-WM4"/>
                         <outlet property="upboard" destination="208-YK-aaY" id="AaZ-cm-6Dc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h4L-l5-tyG" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="tSi-yL-DCs">
+                    <connections>
+                        <action selector="handlePanRecognizer:" destination="rQl-PL-IFJ" id="pVQ-rM-JcP"/>
+                    </connections>
+                </panGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="Dru-JN-pjs">
+                    <connections>
+                        <action selector="handlePanRecognizer:" destination="rQl-PL-IFJ" id="UQG-vj-BG7"/>
+                    </connections>
+                </panGestureRecognizer>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="ozO-b1-7As">
                     <connections>
-                        <action selector="handlePanRecognizer:" destination="rQl-PL-IFJ" id="55w-Q6-FuP"/>
+                        <action selector="handlePanRecognizer:" destination="rQl-PL-IFJ" id="8Eu-Tr-50L"/>
                     </connections>
                 </panGestureRecognizer>
             </objects>
@@ -155,10 +168,28 @@
                                     <segue destination="rQl-PL-IFJ" kind="modal" id="ncf-vz-bcg"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="庄家收 0 分" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lk9-OA-K8g">
+                                <rect key="frame" x="71" y="111" width="179" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="对家收 0 分" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wNa-D7-5IX">
+                                <rect key="frame" x="71" y="168" width="179" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.1023323449" green="0.54091583030000001" blue="0.21321852190000001" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="FRQ-Yo-Njv"/>
+                    <connections>
+                        <outlet property="bankerLabel" destination="lk9-OA-K8g" id="Z5V-Gm-TeQ"/>
+                        <outlet property="otherLabel" destination="wNa-D7-5IX" id="SlA-2c-gRb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bf0-LH-m0C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

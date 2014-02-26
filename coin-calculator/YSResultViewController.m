@@ -29,6 +29,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    [self.bankerLabel setText:[NSString stringWithFormat:@"庄家收 %d 分",self.bankerCount]];
+    [self.otherLabel setText:[NSString stringWithFormat:@"对家收 %d 分",self.otherCount]];
 }
 
 - (void)didReceiveMemoryWarning

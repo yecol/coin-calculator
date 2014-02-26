@@ -17,7 +17,13 @@
 @property(assign,nonatomic) IBOutlet UIView *upboard;
 @property(assign,nonatomic) IBOutlet UIView *downboard;
 
-@property (nonatomic, strong) IBOutlet UIPanGestureRecognizer *panRecognizer;
+@property(strong,nonatomic) NSMutableArray *countArray;
+@property(strong,nonatomic) NSMutableArray *downArray;
+
+
+@property (nonatomic, strong) IBOutlet UIPanGestureRecognizer *panRecognizersoft;
+@property (nonatomic, strong) IBOutlet UIPanGestureRecognizer *panRecognizerhard;
+@property (nonatomic, strong) IBOutlet UIPanGestureRecognizer *panRecognizergood;
 
 - (IBAction)handlePanRecognizer:(id)sender;
 
