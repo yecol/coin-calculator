@@ -15,8 +15,12 @@
 
 @property(assign,nonatomic)IBOutlet UILabel *bankerLabel;
 @property(assign,nonatomic)IBOutlet UILabel *otherLabel;
+@property(assign,nonatomic)IBOutlet UILabel *bankerCountLabel;
+@property(assign,nonatomic)IBOutlet UILabel *otherCountLabel;
+@property(assign,nonatomic)IBOutlet UILabel *titleLabel;
 
-@property(assign,nonatomic) UIButton *againBtn;
+@property(assign,nonatomic) IBOutlet UIButton *againBtn;
+@property(assign,nonatomic) IBOutlet UIView *containerView;
 
 -(IBAction)againBtnPressed;
 

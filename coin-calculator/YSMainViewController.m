@@ -12,13 +12,14 @@
 
 const CGRect kSmallFlip = { 0, 0, 32.0, 42.0 };
 const float kOffsetX = 36.0;
+const float kCornor = 5.0;
 
-@interface YSMainViewController (){
-    NSArray *imagesArray;
+@interface YSMainViewController () {
+    NSArray* imagesArray;
     CGRect currentDraggingViewFrame;
 }
 
-@property (strong, nonatomic) NSArray *evaluateViews;
+@property (strong, nonatomic) NSArray* evaluateViews;
 
 @end
 
@@ -27,14 +28,50 @@ const float kOffsetX = 36.0;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    NSArray *viewsOfInterest = @[self.upboard, self.downboard];
+    
+    LBorderView *upborderView = [[LBorderView alloc] initWithFrame:CGRectMake(0, 0, 280, 130)];
+    upborderView.cornerRadius = kCornor;
+    upborderView.borderType = BorderTypeDashed;
+    upborderView.borderWidth = 2;
+    upborderView.backgroundColor = [UIColor clearColor];
+    upborderView.borderColor = [UIColor colorWithWhite:1.0 alpha:0.6];
+    upborderView.dashPattern = 8;
+    upborderView.spacePattern = 4;
+    self.upboardBorderView = upborderView;
+    [self.upboard addSubview:upborderView];
+    
+    LBorderView *downborderView = [[LBorderView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+    downborderView.cornerRadius = 20;
+    downborderView.borderType = BorderTypeDashed;
+    downborderView.borderWidth = 2;
+    downborderView.backgroundColor = [UIColor lightGrayColor];
+    downborderView.borderColor = [UIColor redColor];
+    downborderView.dashPattern = 6;
+    downborderView.spacePattern = 6;
+    self.downboardBorderView = downborderView;
+    [self.downboard addSubview:downborderView];
+
+    // Set btn display
+    [[self.btn layer] setCornerRadius:kCornor];
+    [[self.btn layer] setBackgroundColor:[[UIColor clearColor] CGColor]];
+    [[self.btn layer] setBorderColor:[[UIColor whiteColor] CGColor]];
+    [[self.btn layer] setBorderWidth:1.0];
+
+    // Do any additional setup after loading the view, typically from a nib.
+    NSArray* viewsOfInterest = @[
+        self.upboard,
+        self.downboard
+    ];
     [self setEvaluateViews:viewsOfInterest];
-    
-    imagesArray = @[@"soft",@"good",@"hard"];
-    
+
+    imagesArray = @[
+        @"soft",
+        @"good",
+        @"hard"
+    ];
+
     NSLog(@"new view");
-    
+
     self.countArray = [NSMutableArray array];
     self.downArray = [NSMutableArray array];
 }
@@ -47,54 +84,49 @@ const float kOffsetX = 36.0;
 
 #pragma mark - Flipside View
 
-- (void)flipsideViewControllerDidFinish:(YSFlipsideViewController *)controller
+- (void)flipsideViewControllerDidFinish:(YSFlipsideViewController*)controller
 {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES
+                             completion:nil];
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (void)prepareForSegue:(UIStoryboardSegue*)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"showAlternate"]) {
         [[segue destinationViewController] setDelegate:self];
     }
-    
+
     if ([[segue identifier] isEqualToString:@"showResult"]) {
-        YSResultViewController *vc = (YSResultViewController*)[segue destinationViewController];
-        
+        YSResultViewController* vc = (YSResultViewController*)[segue destinationViewController];
+
         //compute score;
         int bankerScore = 0;
         int i = 0;
-        
-        for(;i<self.countArray.count;i++){
-            NSLog(@"i=%d",i);
+
+        for (; i < self.countArray.count; i++) {
+            NSLog(@"i=%d", i);
             int sig = 0;
             if ([[self.countArray objectAtIndex:i] isEqualToString:@"soft"]) {
                 sig = 1;
-            }
-            else if ([[self.countArray objectAtIndex:i] isEqualToString:@"hard"]) {
+            } else if ([[self.countArray objectAtIndex:i] isEqualToString:@"hard"]) {
                 sig = 2;
-            }
-            else if ([[self.countArray objectAtIndex:i] isEqualToString:@"good"]) {
+            } else if ([[self.countArray objectAtIndex:i] isEqualToString:@"good"]) {
                 sig = 4;
             }
-            bankerScore += i*sig+(sig*2);
+            bankerScore += i * sig + (sig * 2);
         }
-        
+
         int otherScore = 0;
         int sig = 0;
         if ([[self.downArray objectAtIndex:0] isEqualToString:@"soft"]) {
             sig = 1;
-        }
-        else if ([[self.downArray objectAtIndex:0] isEqualToString:@"hard"]) {
+        } else if ([[self.downArray objectAtIndex:0] isEqualToString:@"hard"]) {
             sig = 2;
-        }
-        else if ([[self.downArray objectAtIndex:0] isEqualToString:@"good"]) {
+        } else if ([[self.downArray objectAtIndex:0] isEqualToString:@"good"]) {
             sig = 4;
         }
-        otherScore = i*sig+(sig*2);
-        
-        
-        
+        otherScore = i * sig + (sig * 2);
+
         [vc setBankerCount:bankerScore];
         [vc setOtherCount:otherScore];
     }
@@ -102,30 +134,31 @@ const float kOffsetX = 36.0;
 
 - (IBAction)handlePanRecognizer:(id)sender
 {
-    
-    UIPanGestureRecognizer *recongizer = (UIPanGestureRecognizer *)sender;
-    
-    if ([recongizer state] == UIGestureRecognizerStateBegan)
-    {
+
+    UIPanGestureRecognizer* recongizer = (UIPanGestureRecognizer*)sender;
+
+    [[[sender view] superview] bringSubviewToFront:[sender view]];
+
+    if ([recongizer state] == UIGestureRecognizerStateBegan) {
         currentDraggingViewFrame = [[sender view] frame];
     }
-    
-    NSArray *views = [self evaluateViews];
-    
-    
+
+    NSArray* views = [self evaluateViews];
+
     // Block to execute when our dragged view is contained by one of our evaluation views.
-    static void (^overlappingBlock)(UIView *overlappingView);
-    overlappingBlock = ^(UIView *overlappingView) {
-        
-        [views enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+    static void (^overlappingBlock)(UIView * overlappingView);
+    overlappingBlock = ^(UIView* overlappingView)
+    {
+
+        [views enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL* stop) {
             
             UIView *aView = (UIView *)obj;
             
             // Style an overlapping view
             if (aView == overlappingView)
             {
-                aView.layer.borderWidth = 8.0f;
-                aView.layer.borderColor = [[UIColor redColor] CGColor];
+                aView.layer.borderWidth = 2.0f;
+                aView.layer.borderColor = [[UIColor whiteColor] CGColor];
                 
                 [[sender view] tag];
                 
@@ -168,40 +201,37 @@ const float kOffsetX = 36.0;
             // Remove styling on non-overlapping views
             else
             {
-                aView.layer.borderWidth = 0.0f;
+                [[[aView subviews] objectAtIndex:0] setHidden:YES];
             }
         }];
     };
-    
+
     // Block to execute when gesture ends.
-    static void (^completionBlock)(UIView *overlappingView);
-    completionBlock = ^(UIView *overlappingView) {
-        
-        if (overlappingView)
-        {
+    static void (^completionBlock)(UIView * overlappingView);
+    completionBlock = ^(UIView* overlappingView)
+    {
+
+        if (overlappingView) {
             NSUInteger overlapIndex = [[self evaluateViews] indexOfObject:overlappingView];
-            NSString *completionText = [NSString stringWithFormat:@"Released over view at index: %lu", (unsigned long)overlapIndex];
-//            [label setText:completionText];
-            NSLog(@"%@",completionText);
+            NSString* completionText = [NSString stringWithFormat:@"Released over view at index: %lu", (unsigned long)overlapIndex];
+            //            [label setText:completionText];
+            NSLog(@"%@", completionText);
         }
-        
+
         // Remove styling from all views
-        [views enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        [views enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL* stop) {
             UIView *aView = (UIView *)obj;
             aView.layer.borderWidth = 0.0f;
         }];
-        
+
         [[sender view] setFrame:currentDraggingViewFrame];
         [[sender view] setHidden:NO];
-        
     };
-    
-    [recongizer dragViewWithinView:[self view]
-           evaluateViewsForOverlap:views
-   containedByOverlappingViewBlock:overlappingBlock
-                        completion:completionBlock];
-    
-}
 
+    [recongizer dragViewWithinView:[self view]
+                evaluateViewsForOverlap:views
+        containedByOverlappingViewBlock:overlappingBlock
+                             completion:completionBlock];
+}
 
 @end
