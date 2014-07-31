@@ -11,6 +11,7 @@
 		270E61851989DEF300F338C4 /* YSPatternView.m in Sources */ = {isa = PBXBuildFile; fileRef = 270E61841989DEF300F338C4 /* YSPatternView.m */; };
 		270E61871989F0BE00F338C4 /* Qing.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 270E61861989F0BE00F338C4 /* Qing.TTF */; };
 		270E618C1989FC7D00F338C4 /* LBorderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 270E618B1989FC7D00F338C4 /* LBorderView.m */; };
+		270E618E198A286B00F338C4 /* reset.png in Resources */ = {isa = PBXBuildFile; fileRef = 270E618D198A286B00F338C4 /* reset.png */; };
 		270F4ECD18BCCC260069DE7C /* cardgood.png in Resources */ = {isa = PBXBuildFile; fileRef = 270F4ECA18BCCC260069DE7C /* cardgood.png */; };
 		270F4ECE18BCCC260069DE7C /* cardhard.png in Resources */ = {isa = PBXBuildFile; fileRef = 270F4ECB18BCCC260069DE7C /* cardhard.png */; };
 		270F4ECF18BCCC260069DE7C /* cardsoft.png in Resources */ = {isa = PBXBuildFile; fileRef = 270F4ECC18BCCC260069DE7C /* cardsoft.png */; };
@@ -54,6 +55,7 @@
 		270E61861989F0BE00F338C4 /* Qing.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = Qing.TTF; sourceTree = "<group>"; };
 		270E618A1989FC7D00F338C4 /* LBorderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBorderView.h; sourceTree = "<group>"; };
 		270E618B1989FC7D00F338C4 /* LBorderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBorderView.m; sourceTree = "<group>"; };
+		270E618D198A286B00F338C4 /* reset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reset.png; sourceTree = "<group>"; };
 		270F4ECA18BCCC260069DE7C /* cardgood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cardgood.png; sourceTree = "<group>"; };
 		270F4ECB18BCCC260069DE7C /* cardhard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cardhard.png; sourceTree = "<group>"; };
 		270F4ECC18BCCC260069DE7C /* cardsoft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cardsoft.png; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 		270F4EC918BCCC260069DE7C /* images */ = {
 			isa = PBXGroup;
 			children = (
+				270E618D198A286B00F338C4 /* reset.png */,
 				270E61811989DDCE00F338C4 /* settings-bg.jpg */,
 				272B406218BE09BD009BC498 /* cardgood_s.png */,
 				272B406818BE09DC009BC498 /* cardhard_s.png */,
@@ -306,6 +309,7 @@
 				270F4ECD18BCCC260069DE7C /* cardgood.png in Resources */,
 				270F4ECF18BCCC260069DE7C /* cardsoft.png in Resources */,
 				272B406B18BE09DC009BC498 /* cardsoft_s.png in Resources */,
+				270E618E198A286B00F338C4 /* reset.png in Resources */,
 				274142E218BB527300C3ADED /* Main.storyboard in Resources */,
 				272B406518BE09BD009BC498 /* cardgood_s.png in Resources */,
 				270F4ECE18BCCC260069DE7C /* cardhard.png in Resources */,

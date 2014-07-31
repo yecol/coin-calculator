@@ -31,4 +31,6 @@
 
 - (IBAction)handlePanRecognizer:(id)sender;
 
+- (IBAction)reset:(id)sender;
+
 @end

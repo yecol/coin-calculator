@@ -19,9 +19,25 @@
 @property(assign,nonatomic)IBOutlet UILabel *otherCountLabel;
 @property(assign,nonatomic)IBOutlet UILabel *titleLabel;
 
+@property(assign,nonatomic)IBOutlet UIView *sameView;
+@property(assign,nonatomic)IBOutlet UILabel *same1Label;
+@property(assign,nonatomic)IBOutlet UILabel *same2Label;
+@property(assign,nonatomic)IBOutlet UILabel *same3Label;
+@property(assign,nonatomic)IBOutlet UILabel *sameCountLabel;
+
+@property(assign,nonatomic)IBOutlet UIView *giveupView;
+@property(assign,nonatomic)IBOutlet UILabel *giveup1Label;
+@property(assign,nonatomic)IBOutlet UILabel *giveup2Label;
+@property(assign,nonatomic)IBOutlet UILabel *giveup3Label;
+@property(assign,nonatomic)IBOutlet UILabel *giveupCountLabel;
+
+@property(assign,nonatomic) IBOutlet UIButton *shareBtn;
+@property(assign,nonatomic) IBOutlet UIButton *infoBtn;
 @property(assign,nonatomic) IBOutlet UIButton *againBtn;
 @property(assign,nonatomic) IBOutlet UIView *containerView;
 
 -(IBAction)againBtnPressed;
+-(IBAction)infoBtnPressed;
+-(IBAction)shareBtnPressed;
 
 @end
